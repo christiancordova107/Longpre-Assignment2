@@ -53,35 +53,31 @@ if ($_SESSION['userIn'] != true && $_SESSION['userType'] != 'admin') {
             <td> First Name</td>
             <td> Last Name</td>
             <td> Username </td>
-            <td> Password </td>
             <td> Creation Time </td>
             <td> Last Login </td>
         </thead>
         <tbody>
             <?php
-        while ($row = $result->fetch_row()) {
+        while ($row = ($result->fetch_assoc())) {
             ?>
             <tr>
                 <td>
-                    <? echo $row[0]; ?>
+                    <?php print($row['fname']); ?>
                 </td>
                 <td>
-                    <? echo $row[1]; ?>
+                    <?php print($row['lname']); ?>
                 </td>
                 <td>
-                    <? echo $row[2]; ?>
+                    <?php print($row['username']); ?>
                 </td>
                 <td>
-                    <? echo $row[3]; ?>
+                    <?php print($row['creation_time']); ?>
                 </td>
                 <td>
-                    <? echo $row[4]; ?>
+                    <?php print($row['last_login']); ?>
                 </td>
                 <td>
-                    <? echo $row[5]; ?>
-                </td>
-                <td>
-                    <a class="edit-option" href="editUser.php?uName=<?php echo $row[2] ?>">Edit User</a>
+                    <a class="edit-option" href="editUser.php?uName=<?php echo $row['username'] ?>">Edit User</a>
                 </td>
             </tr>
             <?php

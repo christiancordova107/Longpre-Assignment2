@@ -54,9 +54,11 @@ else { // case: successfully connected to db
         //apply website salt to the password
         $salt = "I love CS";
         $saltedPass = $salt . $uPass;
+        
 
         //make sure there's a user with the provided username
         $query = "SELECT * FROM users where username='" . $uEmail . "';";
+        
 
         if (($result = (query($query, $conn))) && $result->num_rows > 0) { //user does exists
             $result = $result->fetch_assoc();
