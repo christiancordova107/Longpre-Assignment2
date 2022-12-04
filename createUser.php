@@ -1,3 +1,8 @@
+<?php
+session_start();
+$sessionId = $_COOKIE['PHPSESSID'];
+?>
+
 <html lang="en">
 
 <head>
@@ -47,7 +52,9 @@
                 <label for="confirmedPasssword">Confirm Passsword:</label><br>
                 <input type="password" id="confirmedPasssword" name="confirmedPasssword" required><br><br>
 
-                <button type="submit" name='submit'>Add</button>
+                <input type="hidden" id="sessionId" name="sessionId" value="<?php echo $sessionId; ?>">
+
+                <input type="Submit" id="Submit" name='Submit' value='Submit'>
             </fieldset>
         </form>
         <?php
@@ -66,9 +73,10 @@
 
 
 <?php
-session_start();
+
+
 if ($_SESSION['userIn'] === true && $_SESSION['userType'] === 'admin') {
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['Submit']) && strcmp($_POST['sessionId'], $sessionId) == 0) {
 
         $fname = filter_var($_POST['fname'], FILTER_SANITIZE_STRING);
         $lname = filter_var($_POST['lname'], FILTER_SANITIZE_STRING);

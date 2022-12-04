@@ -1,9 +1,9 @@
 <?php
 
-$host = 'cssrvlab01.utep.edu'; // Change as necessary
-$db = 'cjcordova_f22_db'; // Change as necessary
-$user = 'cjcordova'; // Change as necessary
-$pass = '*utep2022!'; // Change as necessary
+$host = 'localhost'; // Change as necessary
+$db = 'assignment2'; // Change as necessary
+$user = 'root'; // Change as necessary
+$pass = 'mysql'; // Change as necessary
 $chrs = 'utf8mb4';
 $attr = "mysql:host=$host;dbname=$db;charset=$chrs";
 $opts =
